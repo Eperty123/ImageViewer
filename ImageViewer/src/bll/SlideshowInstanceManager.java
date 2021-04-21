@@ -23,7 +23,7 @@ public class SlideshowInstanceManager extends Task {
     /**
      * The amount of time for an instance to be shown.
      */
-    public static double instanceShowTime = 7;
+    public static double instanceShowTime = 20;
 
     private static SlideshowInstanceManager instance;
 
