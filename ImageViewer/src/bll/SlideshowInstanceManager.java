@@ -212,7 +212,7 @@ public class SlideshowInstanceManager extends Task {
 
                     // If our current slideshow is active...
                     if (currentSlideshow.isActive()) {
-                        Logger.getInstance().log(String.format("%d is currently active.", currentSlideshow.getId()));
+                        Logger.getInstance().log(String.format("Instance: %d is currently active.", currentSlideshow.getId()));
 
                         // Start it by either starting the thread Task itself, pause or unpause.
                         if (!currentSlideshow.getSlideshowManager().isSlideshowStarted())

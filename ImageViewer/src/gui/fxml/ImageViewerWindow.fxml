@@ -47,7 +47,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button id="btnPrevious" fx:id="btnNewSlideshowInstance" layoutX="381.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnStartNewInstance" text="New Slideshow Instance">
+                  <Button id="btnPrevious" fx:id="btnNewSlideshowInstance" layoutX="381.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnStartNewInstance" text="New Slideshow">
                      <opaqueInsets>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </opaqueInsets>

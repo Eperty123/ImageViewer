@@ -89,7 +89,7 @@ public class ImageViewerWindowController implements Initializable {
                     updateButtonText(btnStartSlideshow, "Stop Slideshow");
                     break;
             }
-            Logger.getInstance().log(newMessage);
+            //Logger.getInstance().log(newMessage);
         });
 
         registerButtonEvents();
