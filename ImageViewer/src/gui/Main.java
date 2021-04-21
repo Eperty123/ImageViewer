@@ -52,7 +52,13 @@ public class Main extends Application {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
 
-        slideshowInstanceManager.addControllerInstance(loader.getController(), stage);
+        var slideshowInstance = slideshowInstanceManager.addControllerInstance(loader.getController(), stage);
+
+        stage.setOnHiding(e -> {
+            // Remove the instance on close event.
+            if (slideshowInstance != null)
+                slideshowInstanceManager.removeControllerInstance(slideshowInstance.getId());
+        });
         //setPrimaryStage(stage);
         return loader.getController();
     }

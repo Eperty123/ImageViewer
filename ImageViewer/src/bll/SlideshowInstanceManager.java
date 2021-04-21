@@ -56,15 +56,15 @@ public class SlideshowInstanceManager extends Task {
      * @param controller The ImageViewerWindowController instance to add.
      * @return Returns true if successful otherwise false.
      */
-    public boolean addControllerInstance(ImageViewerWindowController controller, Stage stage) {
+    public SlideshowInstance addControllerInstance(ImageViewerWindowController controller, Stage stage) {
         if (controller != null) {
             var id = slideshowInstances.size() + 1;
             var instance = new SlideshowInstance(id, controller, stage);
             slideshowInstances.add(instance);
             Logger.getInstance().log(String.format("New instance of %s added.", controller.getClass().getSimpleName()));
-            return true;
+            return instance;
         }
-        return false;
+        return null;
     }
 
     /**
@@ -77,7 +77,27 @@ public class SlideshowInstanceManager extends Task {
         if (controller != null && slideshowInstances.contains(controller)) {
             for (int i = 0; i < slideshowInstances.size(); i++) {
                 var currController = slideshowInstances.get(i);
-                if (currController.equals(controller)) slideshowInstances.remove(i);
+                if (currController.equals(controller)) {
+                    slideshowInstances.remove(i);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Remove an ImageViewerWindowController instance.
+     *
+     * @param id The ImageViewerWindowController instance to remove.
+     * @return Returns true if successful otherwise false.
+     */
+    public boolean removeControllerInstance(long id) {
+        for (int i = 0; i < slideshowInstances.size(); i++) {
+            var currController = slideshowInstances.get(i);
+            if (currController.getId() == id) {
+                slideshowInstances.remove(i);
+                return true;
             }
         }
         return false;
@@ -256,7 +276,7 @@ public class SlideshowInstanceManager extends Task {
 //            Logger.getInstance().log("No controllers found! Please add one first.");
 //            return;
 //        }
-        
+
         executorService = Executors.newSingleThreadExecutor();
         executorService.submit(this);
         Logger.getInstance().log("Starting slideshow instance manager thread!");
