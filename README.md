@@ -1,2 +1,2 @@
 # ImageViewer
- ImageViewer for DBO (second semester)
+ ImageViewer for DBOS (second semester)
